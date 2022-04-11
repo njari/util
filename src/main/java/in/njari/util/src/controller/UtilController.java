@@ -1,4 +1,4 @@
-package in.njari.util.controller;
+package in.njari.util.src.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class UtilController {
     @GetMapping("/util")
     public ResponseEntity<?> f(){
-        return new ResponseEntity<>("I provide insights.", HttpStatus.OK);
+        throw new RuntimeException("Oops I coudn't do the work");
+       // return new ResponseEntity<>("I provide insights.", HttpStatus.OK);
     }
 }
