@@ -35,10 +35,10 @@ public class ExceptionReportingAdvice {
 
     @AfterThrowing(value = "pointcut()", throwing = "ex")
     public void afterThrowing(JoinPoint pjp, Exception ex ) throws Throwable {
-        System.out.println(pjp.getSignature() + ex.getMessage());
-
         emailMap.put(SUBJECT, ex.getMessage());
         StringBuilder content = new StringBuilder();
+        content.append(System.currentTimeMillis());
+        content.append("<br/>");
         for (int i = 0 ; i < ex.getStackTrace().length && i < 10 ;i++ ){
             content.append(ex.getStackTrace()[i]);
             content.append("<br/>");
